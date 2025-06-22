@@ -1,9 +1,11 @@
 <?php
 
-$signup_form = HTML::Form()->Create('$_POST', Template('signup.html'));
+$signup_form = HTML::Form()->Create('$_POST', Template('signup.html'), Tape('signup.wcf'));
 
 $user_entries = HTML::Event()::POST()->Retrieve($signup_form);
 HTMLProc($user_entries);
+
+$member_auth_token = hash('sha256', $m_email);
 
 if (SUCCEEDED($_POST)) {
 
@@ -20,7 +22,7 @@ if (SUCCEEDED($_POST)) {
 
     else 
         
-        $add_user = InsertInto('t_members', $user_entries);
+        $add_user = InsertInto('t_members', $user_entries, $member_auth_token);
 
         $prepared->QueryObject($add_user);
         $prepared->Statement();

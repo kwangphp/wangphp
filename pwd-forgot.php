@@ -1,6 +1,6 @@
 <?php
 
-$forgot_pwd_form = HTML::Form()->Create('$_POST', Template('forgot-password.html'));
+$forgot_pwd_form = HTML::Form()->Create('$_POST', Template('forgot-password.html'), Tape('forgot-password.wcf'));
 
 $session = new Session();
 $session->Start();
@@ -49,3 +49,4 @@ else
 
         DisconnectDB($connection);
                 
+?>

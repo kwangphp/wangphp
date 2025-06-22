@@ -1,6 +1,6 @@
 <?php
 
-$login_form = HTML::Form()->Create('$_POST', Template('login.html'));
+$login_form = HTML::Form()->Create('$_POST', Template('login.html'), Tape('login.wcf'));
 
 $user_entries = HTML::Event()::POST()->Retrieve($login_form);
 HTMLProc($user_entries);

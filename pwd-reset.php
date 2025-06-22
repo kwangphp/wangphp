@@ -1,6 +1,6 @@
 <?php
 
-$reset_form = HTML::Form()->Create('$_POST', Template('reset.html'));
+$reset_form = HTML::Form()->Create('$_POST', Template('reset.html'), Tape('reset.wcf'));
 $session = new Session();
 $session->Start();
 
